@@ -46,7 +46,7 @@ export default function MainContent({ logoSize }: Props) {
       <div className={styles.hero}>
         <div className={styles.heroBadge}>
           <div className={styles.heroBadgeDot} />
-          <span className={styles.heroBadgeText}>@duncancooper/brand · v0.1.1</span>
+          <span className={styles.heroBadgeText}>@duncancooper/brand · v0.1.2</span>
         </div>
         <h1 className={styles.heroTitle}>
           One brand.{" "}
