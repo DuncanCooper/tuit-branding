@@ -14,7 +14,7 @@ export function Logo({
   size = 48,
   accentColor = theme.colors.primary,
   textColor = theme.colors.text,
-  backgroundColor = theme.colors.background,
+  backgroundColor = 'transparent',
   className,
   style,
 }: LogoProps) {

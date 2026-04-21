@@ -1,92 +1,82 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import iconRaw from "../icon.svg?raw";
 import { theme } from "@duncancooper/brand";
-import ColorSwatches from "./components/ColorSwatches";
-import LogoShowcase from "./components/LogoShowcase";
+import { ThemeContext } from "./ThemeContext";
+import Sidebar from "./components/Sidebar";
+import MainContent from "./components/MainContent";
+import { COLOR_PRESETS } from "./colorSets";
+import type { ColorPreset } from "./colorSets";
+import "./styles/theme.css";
+
+export interface ColorSet {
+  primary: string;
+  secondary: string;
+  background: string;
+  text: string;
+}
+
+export type Mode = "dark" | "light";
 
 export default function App() {
-  const [primaryColor, setPrimaryColor] = useState<string>(theme.colors.primary);
+  const [mode, setMode] = useState<Mode>("dark");
+  const [activePreset, setActivePreset] = useState<string>("Tuit");
+  const [colors, setColors] = useState<ColorSet>(COLOR_PRESETS[0].dark);
   const [logoSize, setLogoSize] = useState(48);
 
+  const applyPreset = (preset: ColorPreset, nextMode?: Mode) => {
+    const m = nextMode ?? mode;
+    setColors(preset[m]);
+    setActivePreset(preset.name);
+  };
+
+  const toggleMode = () => {
+    const next: Mode = mode === "dark" ? "light" : "dark";
+    setMode(next);
+    if (activePreset !== "Custom") {
+      const preset = COLOR_PRESETS.find((p) => p.name === activePreset);
+      if (preset) setColors(preset[next]);
+    }
+  };
+
+  const setColor = (key: keyof ColorSet, value: string) => {
+    setColors((prev) => ({ ...prev, [key]: value }));
+    setActivePreset("Custom");
+  };
+
+  useEffect(() => {
+    const svg = iconRaw
+      .replace(/%234ADE80/gi, colors.primary)
+      .replace(/%230F1419/gi, colors.background)
+      .replace(/#4ADE80/gi, colors.primary)
+      .replace(/#0F1419/gi, colors.background)
+      .replace(/#FFFFFF|white/gi, colors.text);
+    const favicon = document.getElementById("favicon") as HTMLLinkElement | null;
+    if (favicon) favicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+  }, [colors.primary, colors.text, colors.background]);
+
+  const cssVars = {
+    "--color-primary": colors.primary,
+    "--color-secondary": colors.secondary,
+    "--color-background": colors.background,
+    "--color-text": colors.text,
+    "--font-family": theme.typography.fontFamily,
+  } as React.CSSProperties;
+
   return (
-    <div
-      style={{
-        backgroundColor: theme.colors.background,
-        minHeight: "100vh",
-        padding: theme.spacing.xl,
-        color: theme.colors.text,
-        fontFamily: theme.typography.fontFamily,
-      }}
-    >
-      <h1
-        style={{
-          fontSize: theme.typography.sizes.heading,
-          marginBottom: theme.spacing.lg,
-        }}
-      >
-        Tuit Brand Playground
-      </h1>
-
-      <section style={{ marginBottom: theme.spacing.xl }}>
-        <h2 style={{ marginBottom: theme.spacing.md, fontSize: "20px" }}>
-          Controls
-        </h2>
-        <div
-          style={{
-            display: "flex",
-            gap: theme.spacing.lg,
-            flexWrap: "wrap",
-            alignItems: "flex-end",
-          }}
-        >
-          <label
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: theme.spacing.xs,
-            }}
-          >
-            <span style={{ fontSize: "13px", opacity: 0.7 }}>
-              Primary Color
-            </span>
-            <input
-              type="color"
-              value={primaryColor}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPrimaryColor(e.target.value)}
-              style={{
-                width: 48,
-                height: 36,
-                cursor: "pointer",
-                border: "none",
-                background: "none",
-              }}
-            />
-          </label>
-          <label
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: theme.spacing.xs,
-              flex: 1,
-              minWidth: 200,
-            }}
-          >
-            <span style={{ fontSize: "13px", opacity: 0.7 }}>
-              Logo Size: {logoSize}px
-            </span>
-            <input
-              type="range"
-              min={24}
-              max={200}
-              value={logoSize}
-              onChange={(e) => setLogoSize(Number(e.target.value))}
-              style={{ width: "100%" }}
-            />
-          </label>
-        </div>
-      </section>
-
-      <LogoShowcase primaryColor={primaryColor} size={logoSize} />
-      <ColorSwatches primaryColor={primaryColor} />
-    </div>
+    <ThemeContext.Provider value={colors}>
+      <div className="app-root" style={cssVars}>
+        <Sidebar
+          setColor={setColor}
+          applyPreset={applyPreset}
+          activePreset={activePreset}
+          presets={COLOR_PRESETS}
+          mode={mode}
+          toggleMode={toggleMode}
+          logoSize={logoSize}
+          setLogoSize={setLogoSize}
+        />
+        <MainContent logoSize={logoSize} />
+      </div>
+    </ThemeContext.Provider>
   );
 }

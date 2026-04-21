@@ -1,0 +1,381 @@
+.main {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* ── Navbar ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-text-07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 56px;
+  backdrop-filter: blur(8px);
+}
+
+.navLinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.navLink {
+  color: var(--color-text-55);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navCta {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 72px 48px 64px;
+  border-bottom: 1px solid var(--color-text-06);
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary-09);
+  border: 1px solid var(--color-primary-20);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 28px;
+}
+
+.heroBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.heroBadgeText {
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.heroTitle {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+
+.heroAccent {
+  color: var(--color-primary);
+}
+
+.heroBody {
+  font-size: 17px;
+  color: var(--color-text-55);
+  max-width: 440px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 10px;
+}
+
+.ctaPrimary {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text-18);
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Shared section ── */
+.section {
+  padding: 48px;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-35);
+  margin-bottom: 20px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-text-06);
+  margin: 0 48px;
+}
+
+/* ── Color system ── */
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 12px;
+}
+
+.colorCard {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-text-07);
+}
+
+.colorSwatch {
+  height: 72px;
+  /* background-color set inline — it's the palette value being previewed */
+}
+
+.colorInfo {
+  padding: 10px 12px;
+  background: var(--color-text-03);
+}
+
+.colorName {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 3px;
+}
+
+.colorHex {
+  color: var(--color-text-40);
+  font-size: 11px;
+  font-family: monospace;
+}
+
+/* ── Logo & Icon ── */
+.logoBgList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logoBgLabel {
+  color: var(--color-text-35);
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.logoBgRow {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--color-text-06);
+  flex-wrap: wrap;
+}
+
+.logoBgOnBackground { background-color: var(--color-background); }
+.logoBgOnWhite      { background-color: #ffffff; }
+.logoBgOnBlack      { background-color: #000000; }
+.logoBgOnPrimary    { background-color: var(--color-primary); }
+
+/* ── Typography ── */
+.typeStack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-left: 2px solid var(--color-primary);
+  padding-left: 24px;
+}
+
+.typeRowLabel {
+  color: var(--color-text-35);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.typeDisplay  { font-size: 44px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
+.typeHeading  { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; }
+.typeSubhead  { font-size: 20px; font-weight: 600; letter-spacing: 0;      line-height: 1.1; }
+.typeBody     { font-size: 15px; font-weight: 400; letter-spacing: 0;      line-height: 1.65; max-width: 480px; opacity: 0.8; }
+.typeCaption  { font-size: 12px; font-weight: 400; letter-spacing: 0.01em; line-height: 1.65; opacity: 0.8; }
+
+.typeFontFamily {
+  color: var(--color-primary);
+  font-size: 13px;
+  font-family: monospace;
+}
+
+/* ── Components showcase ── */
+.componentStack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.componentGroupLabel {
+  color: var(--color-text-35);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+/* Buttons */
+.buttonRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--color-primary);
+  color: var(--color-background);
+  font-weight: 700;
+}
+
+.btnSecondary {
+  composes: btn;
+  background: var(--color-secondary);
+  color: var(--color-background);
+  font-weight: 700;
+}
+
+.btnOutlined {
+  composes: btn;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  font-weight: 600;
+}
+
+.btnGhost {
+  composes: btn;
+  background: var(--color-text-06);
+  color: var(--color-text);
+  border: 1px solid var(--color-text-10);
+  font-weight: 400;
+}
+
+/* Badges */
+.badgeRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badgeNew        { composes: badge; background: var(--color-primary);      color: var(--color-background); }
+.badgeBeta       { composes: badge; background: var(--color-secondary-20); color: var(--color-secondary); }
+.badgeStable     { composes: badge; background: var(--color-text-08);      color: var(--color-text); }
+.badgeDeprecated { composes: badge; background: rgba(239,68,68,0.15);      color: #f87171; }
+
+/* Cards */
+.cardRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 220px;
+  background: var(--color-text-03);
+  border: 1px solid var(--color-text-08);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.cardIcon {
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary-10);
+  border: 1px solid var(--color-primary-20);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cardIconDot {
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family: monospace;
+}
+
+.cardDesc {
+  color: var(--color-text-45);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 20px 48px;
+  border-top: 1px solid var(--color-text-06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerText {
+  color: var(--color-text-25);
+  font-size: 12px;
+  font-family: monospace;
+}

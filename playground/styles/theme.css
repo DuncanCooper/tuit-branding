@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Derived alpha variants — defined here using color-mix so they update
+  automatically whenever the base vars are changed via inline style in App.tsx.
+  Both the base vars (inline) and derived vars (this class) live on the same
+  .app-root element, so color-mix resolves correctly.
+*/
+.app-root {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-family);
+
+  --color-text-55: color-mix(in srgb, var(--color-text) 55%, transparent);
+  --color-text-45: color-mix(in srgb, var(--color-text) 45%, transparent);
+  --color-text-40: color-mix(in srgb, var(--color-text) 40%, transparent);
+  --color-text-35: color-mix(in srgb, var(--color-text) 35%, transparent);
+  --color-text-25: color-mix(in srgb, var(--color-text) 25%, transparent);
+  --color-text-18: color-mix(in srgb, var(--color-text) 18%, transparent);
+  --color-text-15: color-mix(in srgb, var(--color-text) 15%, transparent);
+  --color-text-10: color-mix(in srgb, var(--color-text) 10%, transparent);
+  --color-text-08: color-mix(in srgb, var(--color-text) 8%, transparent);
+  --color-text-07: color-mix(in srgb, var(--color-text) 7%, transparent);
+  --color-text-06: color-mix(in srgb, var(--color-text) 6%, transparent);
+  --color-text-04: color-mix(in srgb, var(--color-text) 4%, transparent);
+  --color-text-03: color-mix(in srgb, var(--color-text) 3%, transparent);
+
+  --color-primary-09: color-mix(in srgb, var(--color-primary) 9%, transparent);
+  --color-primary-10: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --color-primary-20: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  --color-primary-33: color-mix(in srgb, var(--color-primary) 33%, transparent);
+
+  --color-secondary-20: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+}
