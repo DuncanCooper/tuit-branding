@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 24" role="img" aria-label="Tuit logo">
+    <title>Tuit</title>
+    <desc>Tuit wordmark with green semicircles flanking the word on a dark background.</desc>
+    <rect x="0" y="0" width="92" height="24" fill="#0F1419"/>
+    <path d="M 12 0 A 12 12 0 0 0 12 24 Z" fill="#4ADE80"/>
+    <path d="M 80 0 A 12 12 0 0 1 80 24 Z" fill="#4ADE80"/>
+    <text x="46" y="23.6"
+        text-anchor="middle"
+        font-family="'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
+        font-size="33"
+        font-weight="800"
+        fill="#FFFFFF"
+        letter-spacing="-1">tuit</text>
+</svg>

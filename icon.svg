@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <rect width='100' height='100' rx='20' fill='%230F1419'/>
+    <path d='M 20 36 A 14 14 0 0 0 20 64 Z' fill='%234ADE80'/>
+    <path d='M 80 36 A 14 14 0 0 1 80 64 Z' fill='%234ADE80'/>
+    <text x='50' y='62' text-anchor='middle' font-family='Helvetica Neue, Arial, sans-serif' font-size='32' font-weight='800' fill='white' letter-spacing='-1'>tuit</text>
+</svg>

@@ -1,0 +1,9 @@
+playground/
+src/
+vite.config.ts
+tsup.config.ts
+tsconfig.json
+.github/
+CLAUDE_CODE_HANDOFF.md
+logo.svg
+icon.svg
