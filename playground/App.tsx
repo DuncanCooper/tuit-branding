@@ -60,6 +60,7 @@ export default function App() {
     "--color-background": colors.background,
     "--color-text": colors.text,
     "--font-family": theme.typography.fontFamily,
+    "--color-scheme": mode,
   } as React.CSSProperties;
 
   return (

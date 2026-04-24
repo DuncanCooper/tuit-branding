@@ -69,34 +69,6 @@
   font-size: 11px;
 }
 
-/* ── Color set select ── */
-.selectWrapper {
-  position: relative;
-}
-
-.select {
-  width: 100%;
-  appearance: none;
-  background: var(--color-text-06);
-  border: 1px solid var(--color-primary-33);
-  border-radius: 6px;
-  color: var(--color-text);
-  font-size: 13px;
-  font-weight: 500;
-  font-family: inherit;
-  padding: 7px 30px 7px 10px;
-  cursor: pointer;
-  outline: none;
-}
-
-.selectChevron {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: var(--color-text-35);
-}
 
 /* ── Color rows ── */
 .colorRows {

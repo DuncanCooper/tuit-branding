@@ -20,10 +20,26 @@ const LOGO_BACKGROUNDS: {
   rowClass: string;
   textColor: (c: ColorSet) => string;
 }[] = [
-  { label: "On Background", rowClass: styles.logoBgOnBackground, textColor: (c) => c.text },
-  { label: "On White",      rowClass: styles.logoBgOnWhite,      textColor: () => "#111111" },
-  { label: "On Black",      rowClass: styles.logoBgOnBlack,      textColor: () => "#FFFFFF" },
-  { label: "On Primary",    rowClass: styles.logoBgOnPrimary,    textColor: (c) => c.background },
+  {
+    label: "On Background",
+    rowClass: styles.logoBgOnBackground,
+    textColor: (c) => c.text,
+  },
+  {
+    label: "On White",
+    rowClass: styles.logoBgOnWhite,
+    textColor: () => "#111111",
+  },
+  {
+    label: "On Black",
+    rowClass: styles.logoBgOnBlack,
+    textColor: () => "#FFFFFF",
+  },
+  {
+    label: "On Primary",
+    rowClass: styles.logoBgOnPrimary,
+    textColor: (c) => c.background,
+  },
 ];
 
 export default function MainContent({ logoSize }: Props) {
@@ -36,9 +52,13 @@ export default function MainContent({ logoSize }: Props) {
         <Logo size={22} accentColor={colors.primary} textColor={colors.text} />
         <div className={styles.navLinks}>
           {["Home", "About", "Components", "GitHub"].map((link) => (
-            <span key={link} className={styles.navLink}>{link}</span>
+            <span key={link} className={styles.navLink}>
+              {link}
+            </span>
           ))}
-          <button type="button" className={styles.navCta}>Get Started</button>
+          <button type="button" className={styles.navCta}>
+            Get Started
+          </button>
         </div>
       </nav>
 
@@ -46,19 +66,24 @@ export default function MainContent({ logoSize }: Props) {
       <div className={styles.hero}>
         <div className={styles.heroBadge}>
           <div className={styles.heroBadgeDot} />
-          <span className={styles.heroBadgeText}>@duncancooper/brand · v0.1.2</span>
+          <span className={styles.heroBadgeText}>
+            @duncancooper/brand · v0.1.2
+          </span>
         </div>
         <h1 className={styles.heroTitle}>
-          One brand.{" "}
-          <span className={styles.heroAccent}>Every project.</span>
+          One package. <span className={styles.heroAccent}>Every project.</span>
         </h1>
         <p className={styles.heroBody}>
-          A single source of truth for colors, typography, and logo — installed in any React
-          project with one command.
+          A single source of truth for colors, typography, and logo — installed
+          in any React project with one command.
         </p>
         <div className={styles.heroCtas}>
-          <button type="button" className={styles.ctaPrimary}>Install package</button>
-          <button type="button" className={styles.ctaSecondary}>View on GitHub →</button>
+          <button type="button" className={styles.ctaPrimary}>
+            Install package
+          </button>
+          <button type="button" className={styles.ctaSecondary}>
+            View on GitHub →
+          </button>
         </div>
       </div>
 
@@ -68,15 +93,20 @@ export default function MainContent({ logoSize }: Props) {
       <div className={styles.section}>
         <SectionLabel label="Color System" />
         <div className={styles.colorGrid}>
-          {(Object.entries(colors) as [keyof ColorSet, string][]).map(([name, value]) => (
-            <div key={name} className={styles.colorCard}>
-              <div className={styles.colorSwatch} style={{ backgroundColor: value }} />
-              <div className={styles.colorInfo}>
-                <p className={styles.colorName}>{name}</p>
-                <p className={styles.colorHex}>{value.toUpperCase()}</p>
+          {(Object.entries(colors) as [keyof ColorSet, string][]).map(
+            ([name, value]) => (
+              <div key={name} className={styles.colorCard}>
+                <div
+                  className={styles.colorSwatch}
+                  style={{ backgroundColor: value }}
+                />
+                <div className={styles.colorInfo}>
+                  <p className={styles.colorName}>{name}</p>
+                  <p className={styles.colorHex}>{value.toUpperCase()}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ),
+          )}
         </div>
       </div>
 
@@ -92,8 +122,16 @@ export default function MainContent({ logoSize }: Props) {
               <div key={label}>
                 <p className={styles.logoBgLabel}>{label}</p>
                 <div className={`${styles.logoBgRow} ${rowClass}`}>
-                  <Logo size={logoSize} accentColor={colors.primary} textColor={txtColor} />
-                  <Icon size={logoSize} accentColor={colors.primary} textColor={txtColor} />
+                  <Logo
+                    size={logoSize}
+                    accentColor={colors.primary}
+                    textColor={txtColor}
+                  />
+                  <Icon
+                    size={logoSize}
+                    accentColor={colors.primary}
+                    textColor={txtColor}
+                  />
                 </div>
               </div>
             );
@@ -108,11 +146,31 @@ export default function MainContent({ logoSize }: Props) {
         <SectionLabel label="Typography" />
         <div className={styles.typeStack}>
           {[
-            { label: "Display · 800",    cls: styles.typeDisplay, text: "The quick brown fox" },
-            { label: "Heading · 700",    cls: styles.typeHeading, text: "The quick brown fox jumps" },
-            { label: "Subheading · 600", cls: styles.typeSubhead, text: "The quick brown fox jumps over" },
-            { label: "Body · 400",       cls: styles.typeBody,    text: "The quick brown fox jumps over the lazy dog. A shared design system means every team works from the same visual language." },
-            { label: "Caption · 400",    cls: styles.typeCaption, text: "The quick brown fox jumps over the lazy dog." },
+            {
+              label: "Display · 800",
+              cls: styles.typeDisplay,
+              text: "The quick brown fox",
+            },
+            {
+              label: "Heading · 700",
+              cls: styles.typeHeading,
+              text: "The quick brown fox jumps",
+            },
+            {
+              label: "Subheading · 600",
+              cls: styles.typeSubhead,
+              text: "The quick brown fox jumps over",
+            },
+            {
+              label: "Body · 400",
+              cls: styles.typeBody,
+              text: "The quick brown fox jumps over the lazy dog. A shared design system means every team works from the same visual language.",
+            },
+            {
+              label: "Caption · 400",
+              cls: styles.typeCaption,
+              text: "The quick brown fox jumps over the lazy dog.",
+            },
           ].map(({ label, cls, text }) => (
             <div key={label}>
               <span className={styles.typeRowLabel}>{label}</span>
@@ -121,7 +179,9 @@ export default function MainContent({ logoSize }: Props) {
           ))}
           <div>
             <span className={styles.typeRowLabel}>Font Family</span>
-            <p className={styles.typeFontFamily}>{theme.typography.fontFamily}</p>
+            <p className={styles.typeFontFamily}>
+              {theme.typography.fontFamily}
+            </p>
           </div>
         </div>
       </div>
@@ -136,10 +196,18 @@ export default function MainContent({ logoSize }: Props) {
           <div>
             <p className={styles.componentGroupLabel}>Buttons</p>
             <div className={styles.buttonRow}>
-              <button type="button" className={styles.btnPrimary}>Primary</button>
-              <button type="button" className={styles.btnSecondary}>Secondary</button>
-              <button type="button" className={styles.btnOutlined}>Outlined</button>
-              <button type="button" className={styles.btnGhost}>Ghost</button>
+              <button type="button" className={styles.btnPrimary}>
+                Primary
+              </button>
+              <button type="button" className={styles.btnSecondary}>
+                Secondary
+              </button>
+              <button type="button" className={styles.btnOutlined}>
+                Outlined
+              </button>
+              <button type="button" className={styles.btnGhost}>
+                Ghost
+              </button>
             </div>
           </div>
 
@@ -159,9 +227,18 @@ export default function MainContent({ logoSize }: Props) {
             <p className={styles.componentGroupLabel}>Cards</p>
             <div className={styles.cardRow}>
               {[
-                { title: "theme", desc: "Design tokens for color, spacing, and typography." },
-                { title: "Logo",  desc: "SVG wordmark with size and color props." },
-                { title: "Icon",  desc: "Square icon variant for favicons and avatars." },
+                {
+                  title: "theme",
+                  desc: "Design tokens for color, spacing, and typography.",
+                },
+                {
+                  title: "Logo",
+                  desc: "SVG wordmark with size and color props.",
+                },
+                {
+                  title: "Icon",
+                  desc: "Square icon variant for favicons and avatars.",
+                },
               ].map(({ title, desc }) => (
                 <div key={title} className={styles.card}>
                   <div className={styles.cardIcon}>

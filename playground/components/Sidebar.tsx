@@ -1,9 +1,10 @@
-import React from "react";
+import type React from "react";
 import { Logo, theme } from "@duncancooper/brand";
 import { useTheme } from "../ThemeContext";
 import type { ColorSet, Mode } from "../App";
 import type { ColorPreset } from "../colorSets";
 import styles from "./Sidebar.module.css";
+import ColorSetSelect from "./ColorSetSelect";
 
 interface Props {
   setColor: (key: keyof ColorSet, value: string) => void;
@@ -55,28 +56,12 @@ export default function Sidebar({
         {/* Color set */}
         <section>
           <p className={styles.sectionLabel}>Color Set</p>
-          <div className={styles.selectWrapper}>
-            <select
-              aria-label="Color set"
-              className={styles.select}
-              value={activePreset}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                const preset = presets.find((p) => p.name === e.target.value);
-                if (preset) applyPreset(preset);
-              }}
-            >
-              {activePreset === "Custom" && <option value="Custom">Custom</option>}
-              {presets.map((p) => (
-                <option key={p.name} value={p.name}>{p.name}</option>
-              ))}
-            </select>
-            <svg
-              className={styles.selectChevron}
-              width="10" height="6" viewBox="0 0 10 6" fill="none"
-            >
-              <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
+          <ColorSetSelect
+            presets={presets}
+            activePreset={activePreset}
+            mode={mode}
+            onChange={applyPreset}
+          />
         </section>
 
         {/* Colors */}
