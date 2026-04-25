@@ -1,6 +1,6 @@
 # @duncancooper/brand
 
-Tuit brand package — shared logo components and design tokens for React projects. Published to GitHub Packages (private). Current version: **0.1.2**.
+Tuit brand package — shared logo components and design tokens for React projects. Published to GitHub Packages. Current version: **0.1.2**.
 
 ---
 

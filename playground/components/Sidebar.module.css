@@ -1,7 +1,7 @@
 .sidebar {
   width: 240px;
   flex-shrink: 0;
-  background: color-mix(in srgb, var(--color-background) 78%, white);
+  background: color-mix(in srgb, var(--color-background) 95%, white);
   border-right: 1px solid var(--color-text-08);
   display: flex;
   flex-direction: column;
@@ -13,6 +13,7 @@
   border-bottom: 1px solid var(--color-text-08);
   display: flex;
   align-items: center;
+  height: 60px;
 }
 
 .body {
@@ -68,7 +69,6 @@
   color: var(--color-text-35);
   font-size: 11px;
 }
-
 
 /* ── Color rows ── */
 .colorRows {

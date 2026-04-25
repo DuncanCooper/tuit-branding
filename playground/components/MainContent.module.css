@@ -16,8 +16,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
-  height: 56px;
-  backdrop-filter: blur(8px);
+  height: 60px;
 }
 
 .navLinks {
@@ -204,10 +203,18 @@
   flex-wrap: wrap;
 }
 
-.logoBgOnBackground { background-color: var(--color-background); }
-.logoBgOnWhite      { background-color: #ffffff; }
-.logoBgOnBlack      { background-color: #000000; }
-.logoBgOnPrimary    { background-color: var(--color-primary); }
+.logoBgOnBackground {
+  background-color: var(--color-background);
+}
+.logoBgOnWhite {
+  background-color: #ffffff;
+}
+.logoBgOnBlack {
+  background-color: #000000;
+}
+.logoBgOnPrimary {
+  background-color: var(--color-primary);
+}
 
 /* ── Typography ── */
 .typeStack {
@@ -227,11 +234,39 @@
   text-transform: uppercase;
 }
 
-.typeDisplay  { font-size: 44px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
-.typeHeading  { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; }
-.typeSubhead  { font-size: 20px; font-weight: 600; letter-spacing: 0;      line-height: 1.1; }
-.typeBody     { font-size: 15px; font-weight: 400; letter-spacing: 0;      line-height: 1.65; max-width: 480px; opacity: 0.8; }
-.typeCaption  { font-size: 12px; font-weight: 400; letter-spacing: 0.01em; line-height: 1.65; opacity: 0.8; }
+.typeDisplay {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+.typeHeading {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.typeSubhead {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+.typeBody {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65;
+  max-width: 480px;
+  opacity: 0.8;
+}
+.typeCaption {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+  opacity: 0.8;
+}
 
 .typeFontFamily {
   color: var(--color-primary);
@@ -313,10 +348,26 @@
   font-weight: 600;
 }
 
-.badgeNew        { composes: badge; background: var(--color-primary);      color: var(--color-background); }
-.badgeBeta       { composes: badge; background: var(--color-secondary-20); color: var(--color-secondary); }
-.badgeStable     { composes: badge; background: var(--color-text-08);      color: var(--color-text); }
-.badgeDeprecated { composes: badge; background: rgba(239,68,68,0.15);      color: #f87171; }
+.badgeNew {
+  composes: badge;
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+.badgeBeta {
+  composes: badge;
+  background: var(--color-secondary-20);
+  color: var(--color-secondary);
+}
+.badgeStable {
+  composes: badge;
+  background: var(--color-text-08);
+  color: var(--color-text);
+}
+.badgeDeprecated {
+  composes: badge;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
 
 /* Cards */
 .cardRow {

@@ -154,9 +154,10 @@ export default function ColorSetSelect({ presets, activePreset, mode, onChange }
             <li
               key={p.name}
               role="option"
-              aria-selected={p.name === activePreset}
+              aria-selected={p.name === activePreset ? "true" : "false"}
               className={`${styles.item} ${p.name === activePreset ? styles.itemActive : ""} ${i === highlightedIndex ? styles.itemHighlighted : ""}`}
               onMouseEnter={() => { setHighlightedIndex(i); onChange(p); }}
+              onFocus={() => { setHighlightedIndex(i); onChange(p); }}
               onClick={() => confirm(p)}
             >
               <span

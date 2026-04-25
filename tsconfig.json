@@ -9,7 +9,10 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@duncancooper/brand": ["./src/index.ts"]
+    }
   },
   "include": ["src", "playground"]
 }
