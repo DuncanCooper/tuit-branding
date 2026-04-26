@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Logo, Icon, theme } from "@duncancooper/brand";
 import { useTheme } from "../ThemeContext";
 import type { ColorSet } from "../App";
@@ -25,25 +26,16 @@ const LOGO_BACKGROUNDS: {
     rowClass: styles.logoBgOnBackground,
     textColor: (c) => c.text,
   },
-  {
-    label: "On White",
-    rowClass: styles.logoBgOnWhite,
-    textColor: () => "#111111",
-  },
-  {
-    label: "On Black",
-    rowClass: styles.logoBgOnBlack,
-    textColor: () => "#FFFFFF",
-  },
-  {
-    label: "On Primary",
-    rowClass: styles.logoBgOnPrimary,
-    textColor: (c) => c.background,
-  },
 ];
 
 export default function MainContent({ logoSize }: Props) {
   const colors = useTheme();
+  const [separation, setSeparation] = useState(0);
+  const [logoText, setLogoText] = useState("tuit");
+  const [textOffsetX, setTextOffsetX] = useState(0);
+  const [textOffsetY, setTextOffsetY] = useState(0);
+  const [iconSeparation, setIconSeparation] = useState(0);
+  const [iconText, setIconText] = useState("tuit");
 
   return (
     <main className={styles.main}>
@@ -112,9 +104,59 @@ export default function MainContent({ logoSize }: Props) {
 
       <Divider />
 
-      {/* ── Logo & Icon ── */}
+      {/* ── Custom Logo ── */}
       <div className={styles.section}>
-        <SectionLabel label="Logo & Icon" />
+        <SectionLabel label="Logo Customization" />
+        <div className={styles.customLogoControls}>
+          <label className={styles.sliderLabel}>
+            <span className={styles.sliderLabelText}>
+              Separation — {separation}px
+            </span>
+            <input
+              type="range"
+              className={styles.sliderInput}
+              min={-50}
+              max={50}
+              value={separation}
+              onChange={(e) => setSeparation(Number(e.target.value))}
+            />
+          </label>
+          <label className={styles.sliderLabel}>
+            <span className={styles.sliderLabelText}>
+              Text X — {textOffsetX}px
+            </span>
+            <input
+              type="range"
+              className={styles.sliderInput}
+              min={-20}
+              max={20}
+              value={textOffsetX}
+              onChange={(e) => setTextOffsetX(Number(e.target.value))}
+            />
+          </label>
+          <label className={styles.sliderLabel}>
+            <span className={styles.sliderLabelText}>
+              Text Y — {textOffsetY}px
+            </span>
+            <input
+              type="range"
+              className={styles.sliderInput}
+              min={-10}
+              max={10}
+              value={textOffsetY}
+              onChange={(e) => setTextOffsetY(Number(e.target.value))}
+            />
+          </label>
+          <label className={styles.textInputLabel}>
+            <span className={styles.sliderLabelText}>Text</span>
+            <input
+              type="text"
+              className={styles.textInput}
+              value={logoText}
+              onChange={(e) => setLogoText(e.target.value)}
+            />
+          </label>
+        </div>
         <div className={styles.logoBgList}>
           {LOGO_BACKGROUNDS.map(({ label, rowClass, textColor }) => {
             const txtColor = textColor(colors);
@@ -126,11 +168,60 @@ export default function MainContent({ logoSize }: Props) {
                     size={logoSize}
                     accentColor={colors.primary}
                     textColor={txtColor}
+                    separation={separation}
+                    text={logoText}
+                    textOffsetX={textOffsetX}
+                    textOffsetY={textOffsetY}
                   />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <Divider />
+
+      {/* ── Custom Icon ── */}
+      <div className={styles.section}>
+        <SectionLabel label="Icon Customization" />
+        <div className={styles.customLogoControls}>
+          <label className={styles.sliderLabel}>
+            <span className={styles.sliderLabelText}>
+              Separation — {iconSeparation}px
+            </span>
+            <input
+              type="range"
+              className={styles.sliderInput}
+              min={-10}
+              max={40}
+              value={iconSeparation}
+              onChange={(e) => setIconSeparation(Number(e.target.value))}
+            />
+          </label>
+          <label className={styles.textInputLabel}>
+            <span className={styles.sliderLabelText}>Text</span>
+            <input
+              type="text"
+              className={styles.textInput}
+              value={iconText}
+              onChange={(e) => setIconText(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className={styles.logoBgList}>
+          {LOGO_BACKGROUNDS.map(({ label, rowClass, textColor }) => {
+            const txtColor = textColor(colors);
+            return (
+              <div key={label}>
+                <p className={styles.logoBgLabel}>{label}</p>
+                <div className={`${styles.logoBgRow} ${rowClass}`}>
                   <Icon
                     size={logoSize}
                     accentColor={colors.primary}
                     textColor={txtColor}
+                    separation={iconSeparation}
+                    text={iconText}
                   />
                 </div>
               </div>

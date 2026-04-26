@@ -1,25 +1,20 @@
 import { useState, useEffect } from "react";
 import iconRaw from "../icon.svg?raw";
 import { theme } from "@duncancooper/brand";
+import type { ColorSet, ColorPreset } from "@duncancooper/brand";
 import { ThemeContext } from "./ThemeContext";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
-import { COLOR_PRESETS } from "./colorSets";
-import type { ColorPreset } from "./colorSets";
+import { COLOR_PRESETS } from "@duncancooper/brand";
 import "./styles/theme.css";
 
-export interface ColorSet {
-  primary: string;
-  secondary: string;
-  background: string;
-  text: string;
-}
+export type { ColorSet };
 
 export type Mode = "dark" | "light";
 
 export default function App() {
   const [mode, setMode] = useState<Mode>("dark");
-  const [activePreset, setActivePreset] = useState<string>("Tuit");
+  const [activePreset, setActivePreset] = useState<string>("Default");
   const [colors, setColors] = useState<ColorSet>(COLOR_PRESETS[0].dark);
   const [logoSize, setLogoSize] = useState(48);
 
