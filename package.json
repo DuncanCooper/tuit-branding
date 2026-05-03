@@ -1,6 +1,6 @@
 {
   "name": "@duncancooper/brand",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Tuit brand package — logo components and theme tokens",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

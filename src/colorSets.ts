@@ -60,10 +60,10 @@ export const COLOR_PRESETS: ColorPreset[] = [
   {
     name: "Solar Flare",
     dark: {
-      primary: "#fcff39",
-      secondary: "#d97706",
-      background: "#0F0E0A",
-      text: "#FAF7EE",
+      primary: "#EFF221",
+      secondary: "#646107",
+      background: "#000000",
+      text: "#FFFFFF",
     },
     light: {
       primary: "#D97706",
