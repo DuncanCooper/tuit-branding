@@ -40,7 +40,7 @@ export function Logo({
     .replace(/x="46"/, `x="${46 + textOffsetX}"`)
     .replace(/y="23\.6"/, `y="${23.6 + textOffsetY}"`)
     .replace(/>tuit<\/text>/, `>${text}</text>`)
-    .replace('<svg ', `<svg width="${width}" height="${size}" `);
+    .replace('<svg ', `<svg width="${width}" height="${size}" overflow="visible" `);
 
   return (
     <span

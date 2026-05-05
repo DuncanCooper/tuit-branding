@@ -116,7 +116,7 @@ export default function MainContent({ logoSize }: Props) {
               type="range"
               className={styles.sliderInput}
               min={-50}
-              max={50}
+              max={100}
               value={separation}
               onChange={(e) => setSeparation(Number(e.target.value))}
             />
